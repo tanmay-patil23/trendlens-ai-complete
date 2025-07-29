@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendLens AI - Social Media Trend Analysis Platform</title>
+    <meta name="description" content="Advanced AI-powered social media trend analysis and content generation platform">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 3D Animated Background -->
+    <div class="background-3d">
+        <div class="particles-container"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+        <div class="wave-animation">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>TrendLens AI</h1>
+                    <span class="logo-subtitle">Intelligent Trend Analysis</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#dashboard" class="nav-link active" data-section="dashboard">Dashboard</a>
+                    <a href="#trends" class="nav-link" data-section="trends">Trends</a>
+                    <a href="#analysis" class="nav-link" data-section="analysis">Analysis</a>
+                    <a href="#generator" class="nav-link" data-section="generator">Generator</a>
+                    <a href="#analytics" class="nav-link" data-section="analytics">Analytics</a>
+                    <a href="#predictions" class="nav-link" data-section="predictions">Predictions</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <div class="user-profile">
+                        <div class="avatar">AI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h2>Real-Time Trend Dashboard</h2>
+                    <p>Monitor trending topics across all major social media platforms</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <h3 id="totalPosts">1,247,583</h3>
+                            <p>Posts Analyzed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-content">
+                            <h3 id="avgEngagement">4.7%</h3>
+                            <p>Avg Engagement</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <h3 id="trendingCount">8</h3>
+                            <p>Trending Topics</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <h3 id="accuracy">92%</h3>
+                            <p>Prediction Accuracy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="trending-topics-card">
+                        <div class="card-header">
+                            <h3>Live Trending Topics</h3>
+                            <div class="refresh-indicator">
+                                <span class="pulse-dot"></span>
+                                <span>Live</span>
+                            </div>
+                        </div>
+                        <div class="trending-list" id="trendingList">
+                            <!-- Trending topics will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="platform-distribution-card">
+                        <div class="card-header">
+                            <h3>Platform Distribution</h3>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="platformChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trends Section -->
+            <section id="trends" class="section">
+                <div class="section-header">
+                    <h2>Trend Analysis</h2>
+                    <p>Explore detailed insights into current and emerging trends</p>
+                </div>
+
+                <div class="trends-controls">
+                    <div class="search-container">
+                        <input type="text" id="trendSearch" placeholder="Search trends..." class="form-control">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="filter-controls">
+                        <select id="platformFilter" class="form-control">
+                            <option value="all">All Platforms</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="linkedin">LinkedIn</option>
+                        </select>
+                        <select id="locationFilter" class="form-control">
+                            <option value="all">All Locations</option>
+                            <option value="worldwide">Worldwide</option>
+                            <option value="north america">North America</option>
+                            <option value="europe">Europe</option>
+                            <option value="usa">USA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="trends-grid" id="trendsGrid">
+                    <!-- Trend cards will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Analysis Section -->
+            <section id="analysis" class="section">
+                <div class="section-header">
+                    <h2>Keyword Analysis Engine</h2>
+                    <p>Deep dive into keyword performance and sentiment analysis</p>
+                </div>
+
+                <div class="analysis-form">
+                    <div class="form-group">
+                        <label class="form-label">Keywords to Analyze</label>
+                        <input type="text" id="keywordInput" class="form-control" placeholder="Enter keywords separated by commas">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Timeframe</label>
+                            <select id="timeframeSelect" class="form-control">
+                                <option value="24h">Last 24 Hours</option>
+                                <option value="7d">Last 7 Days</option>
+                                <option value="30d">Last 30 Days</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn--primary" id="analyzeBtn">Analyze Keywords</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analysis-results" id="analysisResults">
+                    <!-- Analysis results will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Content Generator Section -->
+            <section id="generator" class="section">
+                <div class="section-header">
+                    <h2>AI Content Generator</h2>
+                    <p>Create engaging, platform-optimized content with AI assistance</p>
+                </div>
+
+                <div class="generator-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Platform</label>
+                            <select id="generatorPlatform" class="form-control">
+                                <option value="twitter">Twitter</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="tiktok">TikTok</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tone</label>
+                            <select id="generatorTone" class="form-control">
+                                <option value="professional">Professional</option>
+                                <option value="casual">Casual</option>
+                                <option value="enthusiastic">Enthusiastic</option>
+                                <option value="informative">Informative</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Length</label>
+                            <select id="generatorLength" class="form-control">
+                                <option value="short">Short</option>
+                                <option value="medium">Medium</option>
+                                <option value="long">Long</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Topic/Keywords</label>
+                        <input type="text" id="generatorTopic" class="form-control" placeholder="Enter topic or keywords for content">
+                    </div>
+                    <button class="btn btn--primary" id="generateBtn">Generate Content</button>
+                </div>
+
+                <div class="generator-results" id="generatorResults">
+                    <!-- Generated content will appear here -->
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="section">
+                <div class="section-header">
+                    <h2>Analytics Dashboard</h2>
+                    <p>Comprehensive metrics and performance insights</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Trending Keywords</h3>
+                        <div class="keywords-list" id="keywordsList">
+                            <!-- Keywords will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Platform Performance</h3>
+                        <div class="chart-container" style="position: relative; height: 250px;">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Sentiment Analysis</h3>
+                        <div class="chart-container" style="position: relative; height: 250px;">
+                            <canvas id="sentimentChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Growth Trends</h3>
+                        <div class="chart-container" style="position: relative; height: 250px;">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Predictions Section -->
+            <section id="predictions" class="section">
+                <div class="section-header">
+                    <h2>Trend Predictions</h2>
+                    <p>AI-powered forecasting of future trending topics</p>
+                </div>
+
+                <div class="predictions-grid" id="predictionsGrid">
+                    <!-- Predictions will be populated by JavaScript -->
+                </div>
+
+                <div class="prediction-timeline">
+                    <h3>Prediction Timeline</h3>
+                    <div class="timeline" id="timeline">
+                        <!-- Timeline will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer">
+        <!-- Toasts will be added dynamically -->
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Analyzing trends...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
